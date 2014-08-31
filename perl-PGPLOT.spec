@@ -1,6 +1,6 @@
 Name: perl-PGPLOT
 Version: 2.21
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: Perl extension for using the pgplot library
 License: GPL+ or Artistic
 URL: http://search.cpan.org/dist/PGPLOT/
@@ -42,6 +42,9 @@ find $RPM_BUILD_ROOT -depth -type d -exec rmdir {} 2>/dev/null \;
 %{_mandir}/man3/*
 
 %changelog
+* Sun Aug 31 2014 Sérgio Basto <sergio@serjux.com> - 2.21-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
+
 * Wed Sep 11 2013 Sergio Pascual <sergiopr@fis.ucm.es> - 2.21-2
 - Removed patch
 - Added buildrequires perl(ExtUtils::F77)
