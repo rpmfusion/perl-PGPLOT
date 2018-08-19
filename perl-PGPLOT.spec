@@ -1,6 +1,6 @@
 Name: perl-PGPLOT
 Version: 2.21
-Release: 10%{?dist}
+Release: 11%{?dist}
 Summary: Perl extension for using the pgplot library
 License: GPL+ or Artistic
 URL: http://search.cpan.org/dist/PGPLOT/
@@ -57,6 +57,9 @@ find $RPM_BUILD_ROOT -type f -name '*.bs' -size 0 -exec rm -f {} \;
 %{_mandir}/man3/*
 
 %changelog
+* Sun Aug 19 2018 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 2.21-11
+- Rebuilt for Fedora 29 Mass Rebuild binutils issue
+
 * Fri Jul 27 2018 RPM Fusion Release Engineering <sergio@serjux.com> - 2.21-10
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
