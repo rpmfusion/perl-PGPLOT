@@ -1,6 +1,6 @@
 Name: perl-PGPLOT
 Version: 2.24
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: Perl extension for using the pgplot library
 License: GPL+ or Artistic
 URL: https://metacpan.org/release/PGPLOT
@@ -59,6 +59,9 @@ find %{buildroot} -type f -name '*.bs' -empty -delete
 %{_mandir}/man3/PGPLOT.3*
 
 %changelog
+* Thu Jun 17 2021 Leigh Scott <leigh123linux@gmail.com> - 2.24-4
+- Rebuild for new perl version
+
 * Thu Feb 04 2021 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 2.24-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
 
