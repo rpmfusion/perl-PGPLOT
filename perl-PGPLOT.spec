@@ -1,6 +1,6 @@
 Name: perl-PGPLOT
-Version: 2.24
-Release: 6%{?dist}
+Version: 2.28
+Release: 1%{?dist}
 Summary: Perl extension for using the pgplot library
 License: GPL+ or Artistic
 URL: https://metacpan.org/release/PGPLOT
@@ -15,6 +15,7 @@ BuildRequires: perl-devel
 BuildRequires: perl-generators
 BuildRequires: perl-interpreter
 BuildRequires: perl(Config)
+BuildRequires: perl(Devel::CheckLib)
 BuildRequires: perl(ExtUtils::F77)
 BuildRequires: perl(ExtUtils::MakeMaker)
 BuildRequires: perl(ExtUtils::PkgConfig)
@@ -39,7 +40,7 @@ Allow subroutines in the PGPLOT graphics library to be called from Perl.
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor OPTIMIZE="%{optflags}"
-make %{?_smp_mflags}
+%make_build
 
 %install
 make pure_install DESTDIR=%{buildroot}
@@ -59,6 +60,9 @@ find %{buildroot} -type f -name '*.bs' -empty -delete
 %{_mandir}/man3/PGPLOT.3*
 
 %changelog
+* Mon Apr 11 2022 Leigh Scott <leigh123linux@gmail.com> - 2.28-1
+- Update to 2.28
+
 * Thu Feb 10 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 2.24-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
 
