@@ -1,6 +1,6 @@
 Name: perl-PGPLOT
 Version: 2.28
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Perl extension for using the pgplot library
 License: GPL+ or Artistic
 URL: https://metacpan.org/release/PGPLOT
@@ -60,6 +60,9 @@ find %{buildroot} -type f -name '*.bs' -empty -delete
 %{_mandir}/man3/PGPLOT.3*
 
 %changelog
+* Tue Jun 21 2022 Paul Howarth <paul@city-fan.org> - 2.28-2
+- Perl 5.36 rebuild
+
 * Mon Apr 11 2022 Leigh Scott <leigh123linux@gmail.com> - 2.28-1
 - Update to 2.28
 
