@@ -1,9 +1,9 @@
-Name: perl-PGPLOT
-Version: 2.28
-Release: 5%{?dist}
+Name:    perl-PGPLOT
+Version: 2.29
+Release: 1%{?dist}
 Summary: Perl extension for using the pgplot library
 License: GPL+ or Artistic
-URL: https://metacpan.org/release/PGPLOT
+URL:     https://metacpan.org/release/PGPLOT
 Source0: https://cpan.metacpan.org/authors/id/E/ET/ETJ/PGPLOT-%{version}.tar.gz
 # Build
 BuildRequires: coreutils
@@ -22,11 +22,13 @@ BuildRequires: perl(ExtUtils::PkgConfig)
 BuildRequires: perl(IO::File)
 BuildRequires: perl(lib)
 BuildRequires: perl(strict)
+BuildRequires: perl(Test::More)
 BuildRequires: pgplot-devel
 BuildRequires: zlib-devel
 # Runtime
 BuildRequires: perl(DynaLoader)
 BuildRequires: perl(Exporter)
+BuildRequires: perl(PDL)
 # Dependencies
 Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 
@@ -36,7 +38,7 @@ Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Allow subroutines in the PGPLOT graphics library to be called from Perl.
 
 %prep
-%setup -q -n PGPLOT-%{version}
+%autosetup -n PGPLOT-%{version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor OPTIMIZE="%{optflags}"
@@ -49,17 +51,23 @@ find %{buildroot} -type f -name '*.bs' -empty -delete
 %{_fixperms} -c %{buildroot}
 
 %check
-#works locally
-#make test
+make test
 
 %files
 %license LICENSE
 %doc CHANGES HELP README
 %{perl_vendorarch}/auto/PGPLOT/
+%{perl_vendorarch}/PDL/Demos/PGPLOT*.pm
+%{perl_vendorarch}/PDL/Graphics/PGPLOT*.pm
+%{perl_vendorarch}/PDL/Graphics/PGPLOT/
 %{perl_vendorarch}/PGPLOT.pm
+%{_mandir}/man3/PDL::Graphics::*.3pm.*
 %{_mandir}/man3/PGPLOT.3*
 
 %changelog
+* Sun Apr 14 2024 Leigh Scott <leigh123linux@gmail.com> - 2.29-1
+- Update to 2.29
+
 * Sun Feb 04 2024 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 2.28-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_40_Mass_Rebuild
 
