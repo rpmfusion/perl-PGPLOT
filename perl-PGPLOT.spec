@@ -1,6 +1,6 @@
 Name:    perl-PGPLOT
 Version: 2.29
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Perl extension for using the pgplot library
 License: GPL+ or Artistic
 URL:     https://metacpan.org/release/PGPLOT
@@ -65,6 +65,9 @@ make test || :
 %{_mandir}/man3/PGPLOT.3*
 
 %changelog
+* Sat Aug 03 2024 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 2.29-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_41_Mass_Rebuild
+
 * Sun Apr 14 2024 Leigh Scott <leigh123linux@gmail.com> - 2.29-1
 - Update to 2.29
 
