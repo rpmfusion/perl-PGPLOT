@@ -61,6 +61,7 @@ make test || :
 %{perl_vendorarch}/PDL/Graphics/PGPLOT*.pm
 %{perl_vendorarch}/PDL/Graphics/PGPLOT/
 %{perl_vendorarch}/PGPLOT.pm
+%{_mandir}/man3/PDL::Demos::PGPLOT*
 %{_mandir}/man3/PDL::Graphics::*.3pm.*
 %{_mandir}/man3/PGPLOT.3*
 
