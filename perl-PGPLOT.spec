@@ -1,10 +1,11 @@
 Name:    perl-PGPLOT
-Version: 2.30
-Release: 2%{?dist}
+Version: 2.35
+Release: 1%{?dist}
 Summary: Perl extension for using the pgplot library
 License: GPL+ or Artistic
 URL:     https://metacpan.org/release/PGPLOT
 Source0: https://cpan.metacpan.org/authors/id/E/ET/ETJ/PGPLOT-%{version}.tar.gz
+Patch0:  c23.patch.patch
 # Build
 BuildRequires: coreutils
 BuildRequires: findutils
@@ -38,7 +39,7 @@ Requires: perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 Allow subroutines in the PGPLOT graphics library to be called from Perl.
 
 %prep
-%autosetup -n PGPLOT-%{version}
+%autosetup -p1 -n PGPLOT-%{version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor OPTIMIZE="%{optflags}"
@@ -58,14 +59,20 @@ make test || :
 %doc CHANGES HELP README
 %{perl_vendorarch}/auto/PGPLOT/
 %{perl_vendorarch}/PDL/Demos/PGPLOT*.pm
+%{perl_vendorarch}/PDL/Graphics/LUT/
+%{perl_vendorarch}/PDL/Graphics/LUT.pm
 %{perl_vendorarch}/PDL/Graphics/PGPLOT*.pm
 %{perl_vendorarch}/PDL/Graphics/PGPLOT/
+%{perl_vendorarch}/PDL/Graphics/State.pm
 %{perl_vendorarch}/PGPLOT.pm
 %{_mandir}/man3/PDL::Demos::PGPLOT*
 %{_mandir}/man3/PDL::Graphics::*.3pm.*
 %{_mandir}/man3/PGPLOT.3*
 
 %changelog
+* Sun Mar 16 2025 Leigh Scott <leigh123linux@gmail.com> - 2.35-1
+- Update to 2.35
+
 * Wed Jan 29 2025 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 2.30-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_42_Mass_Rebuild
 
